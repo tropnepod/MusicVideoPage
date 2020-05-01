@@ -1,0 +1,48 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div id="btn" onclick="myJsAnimation()">
+    Click Here!
+</div>
+<div class="text-center">
+    <h1 class="display-4 heading">Don't Speak</h1>
+    <div id="container">
+        <iframe style="margin-top:40px;" width="560" height="315" src="https://www.youtube.com/embed/TR3Vdo5etCQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div id="box1">
+
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    function myJsAnimation() {
+        var elem = document.getElementById("container");
+        var pos1 = 0;
+        var pos2 = 475;
+        var pos3 = 0;
+        var id = setInterval(frame, 10);
+        function frame() {
+            if (pos1 == 475) {
+                if (pos2 == 0) {
+                    if (pos3 == 235) {
+                        clearInterval(id);
+                    } else {
+                        pos3++;
+                        elem.style.marginLeft = pos3 + 'px';
+                    }
+                } else {
+                    pos2--;
+                    elem.style.marginLeft = pos2 + 'px';
+                }
+            } else {
+                pos1++;
+                elem.style.marginLeft = pos1 + 'px';
+            }
+        }
+    }
+</script>
